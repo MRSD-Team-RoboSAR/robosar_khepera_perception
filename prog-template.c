@@ -294,6 +294,8 @@ bool processImageFrame(unsigned char* buffer, apriltag_detector_t *td, int fifo_
 #define FOR_DEV_SPD 850
 
 int main(int argc, char *argv[]) {
+  // Add delay to ensure perception does not write to socket before main code is ready to receive
+  usleep(5000000);
 	long int main_loop_delay = 10000;
 
 	/* Initial Template Setup by LinKhepera */
